@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+ <html lang="es">
+  <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OptiGest - Gestión de Activos y Personal</title>
+
+<!-- TailwindCSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+<!-- ================= CSS ================= -->
+<style>
+
+body{
+font-family:'Inter',sans-serif;
+}
+
+.btn-primary{
+background:#137fec;
+color:white;
+padding:12px 24px;
+border-radius:10px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn-primary:hover{
+transform:scale(1.05);
+}
+
+.section{
+max-width:1200px;
+margin:auto;
+padding:80px 20px;
+}
+
+.card{
+background:white;
+border-radius:16px;
+padding:25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+</style>
+  </head>
+
+<body class="bg-gray-100 text-gray-800">
+
+<!-- ================= NAVBAR ================= -->
+
+ <header class="flex justify-between items-center p-6 bg-white shadow">
+
+  <div class="flex items-center gap-2 text-blue-600">
+   <span class="material-symbols-outlined">inventory_2</span>
+    <h1 class="text-xl font-bold">OptiGest</h1>
+  </div>
+
+<div class="flex gap-3">
+  <a href="inicio_sesion.html" <button class="px-4 py-2 bg-gray-200 rounded">Iniciar sesión</button></a>
+  <a href="registro.html" <button class="btn-primary">Registrarse</button></a>
+</div>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="section text-center">
+
+<h2 class="text-5xl font-black mb-6">
+Optimiza tu PYME con <span class="text-blue-600">OptiGest</span>
+</h2>
+
+<p class="text-lg text-gray-600 max-w-xl mx-auto">
+La plataforma líder en gestión de inventario diseñada para mejorar la eficiencia de tu negocio.
+</p>
+
+<div class="flex justify-center gap-4 mt-8">
+ <button class="btn-primary">Comenzar gratis</button>
+ <button class="px-6 py-3 border rounded-lg">Ver demo</button>
+</div>
+
+</section>
+
+<!-- ================= CARACTERISTICAS ================= -->
+
+<section id="caracteristicas" class="section">
+
+ <h3 class="text-3xl font-bold text-center mb-12">Características</h3>
+
+  <div class="grid md:grid-cols-4 gap-6">
+
+   <div class="card">
+    <span class="material-symbols-outlined text-blue-600 text-4xl">hub</span>
+     <h4 class="font-bold mt-3">Gestión Centralizada</h4>
+      <p class="text-sm text-gray-600">Controla todo tu inventario desde un solo lugar.</p>
+</div>
+
+<div class="card">
+ <span class="material-symbols-outlined text-blue-600 text-4xl">monitoring</span>
+  <h4 class="font-bold mt-3">Informes en Tiempo Real</h4>
+   <p class="text-sm text-gray-600">Métricas actualizadas para tomar decisiones.</p>
+</div>
+
+<div class="card">
+ <span class="material-symbols-outlined text-blue-600 text-4xl">shield_lock</span>
+  <h4 class="font-bold mt-3">Seguridad de Datos</h4>
+   <p class="text-sm text-gray-600">Protección avanzada para tu información.</p>
+</div>
+
+<div class="card">
+ <span class="material-symbols-outlined text-blue-600 text-4xl">auto_awesome</span>
+  <h4 class="font-bold mt-3">Interfaz Intuitiva</h4>
+   <p class="text-sm text-gray-600">Fácil de usar para todo tu equipo.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= BENEFICIOS ================= -->
+
+ <section id="beneficios" class="section bg-white rounded-xl">
+
+  <h3 class="text-3xl font-bold mb-6">Beneficios</h3>
+
+  <ul class="space-y-3">
+
+<li class="flex gap-2">
+ <span class="material-symbols-outlined text-green-600">check_circle</span>
+Ahorro de tiempo en administración.
+</li>
+
+<li class="flex gap-2">
+ <span class="material-symbols-outlined text-green-600">check_circle</span>
+  Alertas automáticas de bajo stock.
+</li>
+
+<li class="flex gap-2">
+  <span class="material-symbols-outlined text-green-600">check_circle</span>
+   Acceso desde cualquier dispositivo.
+</li>
+
+</ul>
+
+</section>
+
+<!-- ================= TESTIMONIOS ================= -->
+
+<section id="testimonios" class="section text-center">
+
+<h3 class="text-3xl font-bold mb-10">Lo que dicen nuestros clientes</h3>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<div class="card">
+<p>"OptiGest cambió cómo manejamos nuestro inventario."</p>
+<strong class="block mt-4">Carlos Rodríguez</strong>
+</div>
+
+<div class="card">
+<p>"Muy fácil de usar, todo mi equipo lo aprendió rápido."</p>
+<strong class="block mt-4">Elena Martínez</strong>
+</div>
+
+<div class="card">
+<p>"Los reportes nos ayudan a comprar mejor."</p>
+<strong class="block mt-4">Ricardo Soto</strong>
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= CTA ================= -->
+
+<section class="section text-center bg-blue-600 text-white rounded-xl">
+
+<h3 class="text-4xl font-bold mb-4">
+¿Listo para transformar tu negocio?
+</h3>
+
+<p class="mb-6">
+Prueba gratuita durante 14 días.
+</p>
+
+<button class="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold">
+Empieza ahora
+</button>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="text-center p-8 text-gray-500">
+
+<p>© 2026 OptiGest. Todos los derechos reservados.</p>
+
+</footer>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+const botones=document.querySelectorAll(".btn-primary");
+
+botones.forEach(boton=>{
+boton.addEventListener("click",()=>{
+alert("Bienvenido a OptiGest 🚀");
+});
+});
+
+});
+
+</script>
+
+</body>
+</html>
+```

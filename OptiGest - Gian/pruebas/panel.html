@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+</head>
+<body>
+
+  <h1>Bienvenido</h1>
+  <p id="infoUsuario"></p>
+
+  <button id="cerrarSesion">Cerrar sesión</button>
+
+ <script>
+  const usuario = JSON.parse(localStorage.getItem("usuarioActivo"));
+
+  // Si no hay sesión, redirigir
+  if (!usuario) {
+    window.location.href = "iniciosecion.html";
+  }
+
+  // Aquí SÍ van backticks
+  document.getElementById("infoUsuario").innerText =
+    `Usuario: ${usuario.usuario}`;
+
+  document.getElementById("cerrarSesion").addEventListener("click", () => {
+    localStorage.removeItem("usuarioActivo");
+    window.location.href = "iniciosecion.html";
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Registrar Nuevo Miembro del Personal</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<!-- Fuentes -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#137fec",
+          "background-light": "#f6f7f8",
+          "background-dark": "#101922",
+        },
+        fontFamily: {
+          "display": ["Inter", "sans-serif"]
+        }
+      }
+    }
+}
+</script>
+
+<!-- CSS SEPARADO -->
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+</style>
+
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark">
+
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+
+<div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-10 md:py-20">
+<div class="layout-content-container flex flex-col w-full max-w-[960px] flex-1">
+
+<div class="bg-white dark:bg-background-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 sm:p-8 md:p-12">
+
+<!-- Page Heading -->
+<div class="flex flex-wrap justify-between gap-3 mb-8">
+  <div class="flex flex-col gap-3">
+    <h1 class="text-slate-900 dark:text-slate-50 text-3xl md:text-4xl font-black">Registrar Nuevo Miembro del Personal</h1>
+    <p class="text-slate-500 dark:text-slate-400 text-base">
+      Complete los campos a continuación para agregar un nuevo miembro a su equipo.
+    </p>
+  </div>
+</div>
+
+<!-- Form -->
+<div class="flex flex-col gap-6">
+
+
+<!-- nombre / apellido -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <label class="flex flex-col">
+    <p class="text-slate-800 dark:text-slate-200 font-medium pb-2"> Nombre</p>
+    <input type="nombre" class="form-input rounded-lg border bg-slate-50 dark:bg-slate-800 h-14 p-3.5" placeholder="Ej, Sebastian"/>
+  </label>
+  <label class="flex flex-col">
+    <p class="text-slate-800 dark:text-slate-200 font-medium pb-2">Apellido</p>
+    <input type="apellido" class="form-input rounded-lg border bg-slate-50 dark:bg-slate-800 h-14 p-3.5" placeholder="Ej, Muñoz"/>
+  </label>
+</div>
+
+<!-- Email / Tel -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <label class="flex flex-col">
+    <p class="text-slate-800 dark:text-slate-200 font-medium pb-2">Correo electrónico</p>
+    <input type="email" class="form-input rounded-lg border bg-slate-50 dark:bg-slate-800 h-14 p-3.5" placeholder="ejemplo@empresa.com"/>
+  </label>
+  <label class="flex flex-col">
+    <p class="text-slate-800 dark:text-slate-200 font-medium pb-2">Número de teléfono</p>
+    <input type="tel" class="form-input rounded-lg border bg-slate-50 dark:bg-slate-800 h-14 p-3.5" placeholder="+57 (312) 414-8236"/>
+  </label>
+</div>
+
+  <label class="flex flex-col">
+    <p class="text-slate-800 dark:text-slate-200 font-medium pb-2">Tipo de Documento</p>
+    <div class="relative">
+      <select class="form-select rounded-lg border bg-slate-50 dark:bg-slate-800 h-14 p-3.5 w-full">
+        <option disabled selected>Tipo De Documento</option>
+        <option>C.C</option>
+        <option>C.E</option>
+        <option>PPT</option>
+      </select>
+      <span class="material-symbols-outlined absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400">expand_more</span>
+    </div>
+  </label>
+  <label class="flex flex-col">
+    <p class="text-slate-800 dark:text-slate-200 font-medium pb-2">N.Documento</p>
+    <input type="ID" class="form-input rounded-lg border bg-slate-50 dark:bg-slate-800 h-14 p-3.5" placeholder="ej.1015485799"/>
+  </label>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+ <label class="flex flex-col min-w-40 flex-1">
+  <p class="text-slate-800 dark:text-slate-200 text-base font-medium leading-normal pb-2">Fecha de contratación</p>
+<div class="relative flex w-full flex-1 items-stretch">
+ <input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-slate-50 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:border-primary dark:focus:border-primary h-14 placeholder:text-slate-400 dark:placeholder:text-slate-500 p-3.5 text-base font-normal leading-normal pr-12" placeholder="DD/MM/AAAA" type="data" value=""/>
+<span class="material-symbols-outlined absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 pointer-events-none">calendar_today</span>
+</div>
+<div>
+  <label class="flex flex-col">
+    <p class="text-slate-800 dark:text-slate-200 font-medium pb-2">Observación</p>
+    <input type="text" class="form-input rounded-lg border bg-slate-50 dark:bg-slate-800 h-14 p-3.5" placeholder="Observación"/>
+  </label>
+</div>
+
+
+
+<!-- Buttons -->
+<a href="GestionPersonal.html"> 
+                <div class="flex items-center justify-end gap-4 border-t border-slate-200 pt-6 dark:border-slate-800">
+                    <button type="button"
+                        class="rounded-lg bg-slate-100 px-5 py-3 text-base font-semibold text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700">
+                        Cancelar
+                    </button>
+  <button id="btnRegistrar" class="px-6 h-12 rounded-lg text-white bg-primary hover:bg-primary/90">Registrar</button>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</body>
+
+<!-- JAVASCRIPT SEPARADO -->
+<script>
+  document.getElementById("btnRegistrar").addEventListener("click", () => {
+      alert("Formulario enviado (simulado).");
+  });
+</script>
+
+</html>

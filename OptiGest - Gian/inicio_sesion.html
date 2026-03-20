@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar Sesión - OptiGest</title>
+
+  <!-- ===========================
+          FUENTES Y TAILWIND
+      ============================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- ===========================
+              CSS PERSONAL
+      ============================ -->
+  <style type="text/tailwindcss">
+    :root {
+      --primary-color: #1193d4;
+      --primary-color-hover: #0e7ab8;
+      --secondary-bg: #a5b1bd;
+      --card-bg: #ffffff;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --input-bg: #f1f5f9;
+      --input-placeholder: #94a3b8;
+      --input-focus-ring: #38bdf8;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900">
+
+  <!-- ===========================
+                HTML
+      ============================ -->
+
+  <main class="flex items-center justify-center min-h-screen p-4">
+    <div class="w-full max-w-md p-8 space-y-6 bg-[var(--card-bg)] rounded-2xl shadow-lg">
+      <div class="text-center">
+
+        <!-- Ícono -->
+        <svg class="mx-auto h-12 w-auto text-[var(--primary-color)]" fill="none" stroke="currentColor" stroke-width="1.5"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.338-2.345 5.25 5.25 0 0 1 9.858 2.345 4.5 4.5 0 0 1-1.41 8.775"
+            stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+
+        <h1 class="mt-4 text-3xl font-bold tracking-tight text-[var(--text-primary)]">
+          Accede a tu cuenta
+        </h1>
+        <p class="mt-2 text-sm text-[var(--text-secondary)]">
+          Gestiona tu inventario y activos de forma eficiente.
+        </p>
+      </div>
+
+      <!-- Formulario -->
+      <form id="formLogin" method="POST" class="space-y-6">
+
+        <div>
+          <label for="usuario" class="sr-only">Usuario</label>
+          <input id="usuario" name="usuario" type="text" autocomplete="username" required
+            placeholder="Usuario"
+            class="block w-full rounded-md border border-gray-300 bg-[var(--input-bg)] px-3 py-3 text-[var(--text-primary)] placeholder-[var(--input-placeholder)] focus:border-[var(--primary-color)] focus:ring-[var(--input-focus-ring)] sm:text-sm" />
+        </div>
+
+        <div>
+          <label for="contraseña" class="sr-only">Contraseña</label>
+          <input id="contraseña" name="contraseña" type="password" autocomplete="current-password" required
+            placeholder="Contraseña"
+            class="block w-full rounded-md border border-gray-300 bg-[var(--input-bg)] px-3 py-3 text-[var(--text-primary)] placeholder-[var(--input-placeholder)] focus:border-[var(--primary-color)] focus:ring-[var(--input-focus-ring)] sm:text-sm" />
+        </div>
+
+        <div class="flex items-center justify-end">
+          <a href="recuperar_contraseña.html" class="text-sm font-medium text-[var(--primary-color)] hover:text-[var(--primary-color-hover)]">
+            ¿Olvidaste tu contraseña?
+          </a>
+        </div>
+
+        <button type="submit"
+          class="w-full flex justify-center rounded-md bg-[var(--primary-color)] py-3 px-4 text-sm font-semibold text-white hover:bg-[var(--primary-color-hover)] focus:ring-2 focus:ring-[var(--primary-color)]">
+          Iniciar sesión
+        </button>
+        <div class="flex items-center justify-end">
+          <a href="registro.html" class="text-sm font-medium text-[var(--primary-color)] hover:text-[var(--primary-color-hover)]">
+            Registrate
+          </a>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- ===========================
+              JAVASCRIPT
+      ============================ -->
+  <script>
+   function obtenerBD() {
+    return JSON.parse(localStorage.getItem("usuariosDB")) || [];
+  }
+
+  document.getElementById("formLogin").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const usuario = document.getElementById("usuario").value;
+    const password = document.getElementById("contraseña").value;
+
+    const baseDatos = obtenerBD();
+
+    // Buscar usuario
+    const encontrado = baseDatos.find(u => u.usuario === usuario);
+
+    if (!encontrado) {
+      alert("❌ Usuario no encontrado");
+      return;
+    }
+
+    if (encontrado.password !== password) {
+      alert("❌ Contraseña incorrecta");
+      return;
+    }
+    // Guardar sesión
+    localStorage.setItem("usuarioActivo", JSON.stringify(encontrado));
+
+    // Redirigir al dashboard
+    window.location.href = "panel_control_activos_y_personal.html";
+  });
+  </script>
+
+</body>
+
+</html>

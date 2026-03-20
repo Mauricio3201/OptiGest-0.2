@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registrate - OptiGest</title>
+
+  <!-- ===========================
+          FUENTES Y TAILWIND
+      ============================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- ===========================
+              CSS PERSONAL
+      ============================ -->
+  <style type="text/tailwindcss">
+    :root {
+      --primary-color: #1193d4;
+      --primary-color-hover: #0e7ab8;
+      --secondary-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --input-bg: #f1f5f9;
+      --input-placeholder: #94a3b8;
+      --input-focus-ring: #38bdf8;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900">
+
+  <!-- ===========================
+                HTML
+      ============================ -->
+
+  <main class="flex items-center justify-center min-h-screen p-4">
+    <div class="w-full max-w-md p-8 space-y-6 bg-[var(--card-bg)] rounded-2xl shadow-lg">
+      <div class="text-center">
+
+        <!-- Ícono -->
+        <svg class="mx-auto h-12 w-auto text-[var(--primary-color)]" fill="none" stroke="currentColor" stroke-width="1.5"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.338-2.345 5.25 5.25 0 0 1 9.858 2.345 4.5 4.5 0 0 1-1.41 8.775"
+            stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+
+        <h1 class="mt-4 text-3xl font-bold tracking-tight text-[var(--text-primary)]">
+          Registrate
+        </h1>
+        <p class="mt-2 text-sm text-[var(--text-secondary)]">
+          Gestiona tu inventario y activos de forma eficiente.
+        </p>
+      </div>
+
+      <!-- Formulario -->
+      <form id="formRegistro" method="POST" class="space-y-6">
+
+        <div>
+          <label for="usuario" class="sr-only">Usuario</label>
+          <input id="usuario" name="usuario" type="text" autocomplete="Usuario" required
+            placeholder="Usuario"
+            class="block w-full rounded-md border border-gray-300 bg-[var(--input-bg)] px-3 py-3 text-[var(--text-primary)] placeholder-[var(--input-placeholder)] focus:border-[var(--primary-color)] focus:ring-[var(--input-focus-ring)] sm:text-sm" />
+        </div>
+        <div>
+          <label for="Correo" class="sr-only">Correo</label>
+          <input id="correo" name="correo" type="text" autocomplete="Correo" required
+            placeholder="Correo"
+            class="block w-full rounded-md border border-gray-300 bg-[var(--input-bg)] px-3 py-3 text-[var(--text-primary)] placeholder-[var(--input-placeholder)] focus:border-[var(--primary-color)] focus:ring-[var(--input-focus-ring)] sm:text-sm" />
+        </div>
+        <div>
+          <label for="telefono" class="sr-only">Telefono</label>
+          <input id="telefono" name="telefono" type="number" autocomplete="Telefono" required
+            placeholder="Telefono"
+            class="block w-full rounded-md border border-gray-300 bg-[var(--input-bg)] px-3 py-3 text-[var(--text-primary)] placeholder-[var(--input-placeholder)] focus:border-[var(--primary-color)] focus:ring-[var(--input-focus-ring)] sm:text-sm" />
+        </div>
+
+        <div>
+          <label for="password" class="sr-only">Contraseña</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required
+            placeholder="Contraseña"
+            class="block w-full rounded-md border border-gray-300 bg-[var(--input-bg)] px-3 py-3 text-[var(--text-primary)] placeholder-[var(--input-placeholder)] focus:border-[var(--primary-color)] focus:ring-[var(--input-focus-ring)] sm:text-sm" />
+        </div>
+        <button type="submit"
+          class="w-full flex justify-center rounded-md bg-[var(--primary-color)] py-3 px-4 text-sm font-semibold text-white hover:bg-[var(--primary-color-hover)] focus:ring-2 focus:ring-[var(--primary-color)]">
+          Registrate
+        </button>
+         <div class="flex items-center justify-end">
+          
+          <a href="inicio_sesion.html" class="text-sm font-medium text-[var(--primary-color)] hover:text-[var(--primary-color-hover)]">
+            Inicia Sesion
+          </a>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- ===========================
+              JAVASCRIPT
+      ============================ -->
+    <script>
+    function obtenerBD() {
+      return JSON.parse(localStorage.getItem("usuariosDB")) || [];
+    }
+
+    function guardarBD(data) {
+      localStorage.setItem("usuariosDB", JSON.stringify(data));
+    }
+
+    document.getElementById("formRegistro").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const usuario = document.getElementById("usuario").value;
+      const correo = document.getElementById("correo").value;
+      const telefono = document.getElementById("telefono").value;
+      const password = document.getElementById("password").value;
+
+      let baseDatos = obtenerBD();
+
+      // Validar si el usuario ya existe
+      const existe = baseDatos.find(u => u.usuario === usuario);
+      if (existe) {
+        alert("❌ El usuario ya existe.");
+        return;
+      }
+
+      // Crear el usuario
+      const nuevoUsuario = {
+        id: Date.now(),
+        usuario,
+        correo,
+        telefono,
+        password
+      };
+
+      baseDatos.push(nuevoUsuario);
+      guardarBD(baseDatos);
+
+      alert("✔ Registro exitoso");
+      document.getElementById("formRegistro").reset();
+    });
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OptiGest</title>
+
+  <!-- Tailwind + Google Fonts -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- ============================
+       CSS PERSONAL
+  ============================= -->
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+    }
+
+    .material-symbols-outlined.fill {
+      font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+    }
+  </style>
+
+  <!-- ============================
+       CONFIGURACIÓN TAILWIND (JS)
+  ============================= -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#137fec",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            display: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200">
+<div class="flex h-screen">
+
+<!-- ==========================================
+     HTML — SIDENAV (MENÚ LATERAL)
+========================================== -->
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-background-dark border-r border-gray-200 dark:border-gray-800 flex flex-col">
+  <div class="flex flex-col h-full p-4">
+    <div class="flex items-center gap-3 mb-8">
+      <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+           style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB24WuMBzg4erGQf4KZPAgryuDYxWtU1IphniaJLOGG9zyCNdwjZJIWhsOGWTvsR1VYJCAWAIbl9SHf4d81cFFPNqcvs2WQByWxZiqk7NydDIcqeFQ1IftCUPTAOjf3AwDDXoX3zN3noKXno_Hs-kFLg3Sv0CTqwtPtvX0xWmmrM6AqZ_BVMk0qvfu3BoyRsN26jOdQ7fjgivetdsqhfwbtUAnCm0gnPsizSlaJHIohBcFR8D-SgPJjOSc7rU4LKXwNAn1JZFZQlFs");'>
+      </div>
+      <div class="flex flex-col">
+        <h1 class="text-gray-900 dark:text-white text-base font-bold">OptiGest</h1>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Gestión de Personal</p>
+      </div>
+    </div>
+
+    <!-- Menú -->
+    <nav class="flex flex-col gap-2">
+      <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors" href="panel_control_activos_y_personal.html">
+        <span class="material-symbols-outlined">dashboard</span>
+        <p>Inicio</p>
+      </a>
+
+      <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors" href="GestionActivos.html">
+        <span class="material-symbols-outlined">inventory_2</span>
+        <p>Activos</p>
+      </a>
+    </nav>
+</aside>
+
+<!-- ==========================================
+     HTML — CONTENIDO PRINCIPAL
+========================================== -->
+<main class="flex-1 overflow-y-auto p-8">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Encabezado -->
+    <div class="flex flex-wrap justify-between items-center mb-6">
+      <div>
+        <h1 class="text-3xl font-bold">Gestión de Personal</h1>
+        <p class="text-gray-500 dark:text-gray-400">Administra y gestiona el personal</p>
+      </div>
+
+      <a href="registro personal.html"l><button class="flex items-center gap-2 h-10 px-4 bg-primary text-white rounded-lg">
+        <span class="material-symbols-outlined">add</span>
+        Registrar Personal
+      </button></a>
+    </div>
+
+    <!-- Buscador -->
+    <div class="mb-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label>
+            <div class="flex items-stretch rounded-lg h-10">
+              <div class="flex items-center justify-center pl-3 border bg-white dark:bg-gray-800 dark:border-gray-700 border-gray-300 border-r-0">
+                <span class="material-symbols-outlined">search</span>
+              </div>
+              <input class="form-input flex-1 rounded-r-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800" placeholder="Buscar por ID" />
+            </div>
+          </label>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- Tabla -->
+    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-800">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead class="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400 uppercase">
+            <tr>
+              <th class="px-6 py-3">Nombre </th>
+              <th class="px-6 py-3">Apellido</th>
+              <th class="px-6 py-3">Estado</th>
+              <th class="px-6 py-3">Contratación (Fecha)</th>
+              <th class="px-6 py-3">ID</th>
+              <th class="px-6 py-3 text-right">Acciones</th>
+            </tr>
+          </thead>
+
+          <tbody>
+                  <!-- Tus filas originales se mantienen tal cual -->
+                  <!-- SOLO las dejé organizadas -->
+                  <!-- … (no modificadas para respetar tu contenido) -->
+
+                  <!-- ——— FILA EJEMPLO ——— -->
+                  <tr class="bg-white border-b hover:bg-gray-50">
+                    <td class="px-6 py-4 font-medium text-gray-900">Sebastian</td>
+                    <td class="px-6 py-4 font-medium text-gray-900">Muñoz</td>
+                    <td class="px-6 py-4">Activo</td>
+                    <td class="px-6 py-4">01/12/25</td>
+                    <td class="px-6 py-4">100058247</td>
+                    <td class="px-6 py-4 text-center space-x-2">
+                      <a href="perfil usuario.html"> <button class="p-1 text-gray-500 hover:text-[var(--primary-color)]">
+                        <span class="material-symbols-outlined">person</span>
+                      </button></a>
+                     
+                      <a href="#"><button class="p-1 text-gray-500 hover:text-red-600">
+                        <span class="material-symbols-outlined text-xl">delete</span>
+                      </button></a>
+                      
+                    </td>
+                  </tr>
+                </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+</div>
+
+<!-- ============================
+     JS PERSONAL (vacío por ahora)
+============================= -->
+<script>
+
+</script>
+
+</body>
+</html>

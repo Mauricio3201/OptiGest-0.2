@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Información Detallada de Empleado</title>
+
+    <!-- TAILWIND -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- FUENTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+
+    <!-- ===================== -->
+    <!--         CSS           -->
+    <!-- ===================== -->
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24;
+        }
+        .material-symbols-outlined {
+  font-variation-settings:
+
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+         }
+    </style>
+
+    <!-- ===================== -->
+    <!--       JavaScript      -->
+    <!-- ===================== -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark">
+
+<!-- ===================== -->
+<!--        HTML           -->
+<!-- ===================== -->
+
+<div class="relative flex min-h-screen w-full">
+    <!-- SideNavBar -->
+    <aside class="flex flex-col w-64 bg-white dark:bg-gray-900 border-r border-slate-200 dark:border-gray-800 p-4 shrink-0">
+        <div class="flex items-center gap-3 px-6 h-16 border-b border-gray-200">
+                    <span class="material-symbols-outlined text-3xl">build</span>
+                <h1 class="text-xl font-bold text-gray-900">OptiGest</h1>
+            </div>
+
+        <nav class="flex flex-col gap-2 flex-grow">
+            <a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="panel_control_activos_y_personal.html"><span class="material-symbols-outlined">dashboard</span>Inicio</a>
+            <a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="GestionActivos.html"><span class="material-symbols-outlined">inventory_2</span>Activos</a>
+        </nav>
+
+        <div class="flex flex-col gap-1 mt-8">
+
+            <div class="mt-4">
+                <a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#"><span class="material-symbols-outlined">settings</span>Configuración</a>
+                <a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#"><span class="material-symbols-outlined">help</span>Ayuda</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 lg:p-10">
+        <div class="mx-auto max-w-4xl">
+
+            <div class="flex justify-between items-center mb-8">
+                <h1 class="text-3xl font-black text-slate-900 dark:text-white">Información de Empleado</h1>
+                
+                <button  class="flex items-center gap-2 bg-slate-200 dark:bg-slate-700 rounded-lg h-10 px-4 font-bold hover:bg-slate-300 dark:hover:bg-slate-600" hreft="GestionPersonal">
+                    <span class="material-symbols-outlined">arrow_back</span>Regresar
+                </button>
+            </div>
+
+            <!-- Card -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-slate-200 dark:border-gray-800">
+
+                <div class="p-6 border-b dark:border-gray-800">
+                    <div class="flex flex-col sm:flex-row sm:justify-between items-center gap-6">
+                        <div class="flex items-center gap-4">
+                            <div class="flex flex-col">
+                                <p class="text-2xl font-bold dark:text-white">Andres Gutierrez</p>
+                                <p class="text-slate-500 dark:text-slate-400">Administrador</p>
+                                <span class="mt-2 inline-flex bg-emerald-100 dark:bg-emerald-900 px-2.5 py-0.5 rounded-full text-sm text-emerald-800 dark:text-emerald-200">Activo</span>
+                            </div>
+                        </div>
+                         <a href="editar personal.html"><button>Editar</button></a> 
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="px-6 pb-3 border-b dark:border-gray-800 flex gap-8">
+                    <a class="border-b-[3px] border-primary text-primary dark:text-white pb-[13px] pt-4 font-bold">Información General</a>
+                    <a class="pb-[13px] pt-4 text-slate-500 hover:text-slate-700">Historial de Actividad</a>
+                </div>
+
+                <!-- Información General -->
+                <div class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-x-4">
+                    <div class="py-4 border-t dark:border-gray-800">
+                        <p class="text-slate-500">Correo Electrónico</p>
+                        <p class="dark:text-slate-200">andres.gutierrez@empresa.com</p>
+                    </div>
+
+                    <div class="py-4 border-t dark:border-gray-800">
+                        <p class="text-slate-500">Departamento</p>
+                        <p class="dark:text-slate-200">Tecnología</p>
+                    </div>
+
+                    <div class="py-4 border-t dark:border-gray-800">
+                        <p class="text-slate-500">Número de Teléfono</p>
+                        <p class="dark:text-slate-200">+57 312 123 456</p>
+                    </div>
+
+                    <div class="py-4 border-t dark:border-gray-800">
+                        <p class="text-slate-500">Fecha de Contratación</p>
+                        <p class="dark:text-slate-200">15 de Enero, 2021</p>
+                    </div>
+
+                    <div class="py-4 border-t dark:border-gray-800">
+                        <p class="text-slate-500">ID de Empleado</p>
+                        <p class="dark:text-slate-200">EMP-0001</p>
+                    </div>
+
+                    <div class="py-4 border-t dark:border-gray-800">
+                        <p class="text-slate-500">Permisos de Usuario</p>
+                        <p class="dark:text-slate-200">Administrador</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</div>
+
+</body>
+</html>
